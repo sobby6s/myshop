@@ -1,0 +1,55 @@
+touch setup.sh
+chmod +x setup.sh
+./setup.sh
+
+sau
+
+I. Pentru a automatiza fisierele HTML  folosint un template HTML pentru toate paginile
+1.Instalam  Node.js
+ https://nodejs.org/en/download/
+
+2. Verificam in command prompt
+node -v
+npm -v
+
+3. In proiectul curent
+npm init -y
+
+4. Instalam Webpack
+npm install webpack webpack-cli --save-dev
+
+5. Verificam in command prompt
+npx webpack -v
+6. Instalam modulele necesare
+html-webpack-plugin - adauga js, css cod html in fisierul HTML
+
+npm i html-webpack-plugin --save-dev
+npm i copy-webpack-plugin mini-css-extract-plugin autoprefixer css-loader 
+npm i postcss-loader sass sass-loader style-loader --save-dev
+npm i babel-loader
+npm i  bootstrap bootstrap-icons jquery @popperjs/core --save
+
+
+7.
+mkdir {dist,src,src/assets src/js,src/assets/scss,src/assets/images}
+mkdir {src/js/components,src/js/contexts}
+
+8. facem un fiser de configurare webpack.config.js
+si facem setarile necesare
+ touch src/index.html src/index.js src/js/main.js src/assets/scss/styles.scss webpack.config.js
+ touch src/js/components/Component.js src/js/components/App.js src/js/components/CartItem.js
+ touch src/js/components/CartList.js src/js/components/Footer.js src/js/components/Header.js
+ touch src/js/components/ProductItem.js src/js/components/ProductList.js
+
+ touch src/js/contexts/CartContext.js
+
+9. Daca avem git-ul configurat:
+touch .gitignore && echo "node_modules/" >> .gitignore && git rm -r --cached node_modules ;
+
+10.
+ package.json
+ "scripts": {
+    "dev": "webpack build --mode=development",
+    "build": "webpack build --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
